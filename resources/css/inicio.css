@@ -1,0 +1,255 @@
+/* Fondo con olas animadas */
+body {
+  background-color: #f5f5f5;
+  font-family: "Asap", sans-serif;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 950px;
+  height: 950px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+  left: 50%;
+  bottom: -41%;
+  transform: translateX(-50%);
+}
+
+body::before {
+  background-color: #ff7a01;
+  animation: wawes 6s infinite linear;
+}
+
+body::after {
+  background-color: #ff7c014d;
+  animation: wawes 7s infinite;
+}
+
+@keyframes wawes {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contenedor principal */
+.container {
+  margin-top: 20vh;
+  margin-left: 15vw;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 1px solid #ff7a01;
+  width: 90%;
+  max-width: 1300px;
+  padding: 20px;
+  height: 60vh;           
+  max-height: 500px;      
+  min-height: 300px;
+}
+
+.container-top{
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0%;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.titulo p {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.titulo p::before,
+.titulo p::after {
+  content: "[";
+  color: #ff7a01;
+  font-size: 1.7rem;
+  margin: 0 8px;
+  position: relative;
+  top: -1px;
+}
+
+.titulo p::after {
+  content: "]";
+}
+
+/* Botones */
+.container-botones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 8vh;
+}
+
+.container-botones form {
+  margin: 0;
+}
+
+.boton, .boton-sesion {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-radius: 1px;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton {
+  border-color: #ff7a01;
+  color: #ff7a01;
+}
+
+.boton:hover {
+  background-color: #ff7c01a2;
+  color: #ffffff;
+}
+
+.boton-sesion {
+  border-color: #ff2701;
+  color: #ff2701;
+}
+
+.boton-sesion:hover {
+  background-color: #ff270196;
+  color: #ffffff;
+}
+
+/* Registro */
+.registro {
+  position: relative;
+  height: 100%;
+  top: 0.5vh;
+  left: 30%;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+
+}
+
+.img-cajera {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 3px;
+}
+
+.boton-registro {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background-color: #ffffff;
+  border: 1px solid transparent; /* borde invisible pero ya está ahí */
+  color: #ff7c01;
+  border-radius: 2px;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton-registro:hover {
+  border-color: #ff7c01; /* ahora solo cambia el color */
+}
+
+/* Footer */
+.footer {
+  margin-top: 14vh;
+  text-align: center;
+}
+
+.footer h1 {
+  font-family: "Asap", sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: fadeDown 1s ease-in-out;
+}
+
+.footer h1 span {
+  color: #fc902c;
+}
+
+.footer h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #fc902c;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .titulo {
+    font-size: 1.3rem;
+  }
+
+  .titulo p {
+    font-size: 1.3rem;
+  }
+
+  .registro {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .img-cajera {
+    width: 20px;
+    height: 20px;
+  }
+
+  .boton-registro {
+    width: 100%;
+  }
+
+  .footer h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  .boton, .boton-sesion {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .titulo {
+    font-size: 1.1rem;
+  }
+
+  .footer h1 {
+    font-size: 1.3rem;
+  }
+}

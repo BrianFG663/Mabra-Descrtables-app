@@ -1,0 +1,292 @@
+.register {
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+    -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+  }
+  .register::before, .register::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+  }
+  .register::before {
+    left: 40%;
+    bottom: -100%;
+    background-color: #ff7a01;
+    -webkit-animation: wawes 6s infinite linear;
+    -moz-animation: wawes 6s infinite linear;
+    animation: wawes 6s infinite linear;
+  }
+  .register::after {
+    left: 35%;
+    bottom: -90%;
+    background-color: #ff7c014d;
+    -webkit-animation: wawes 7s infinite;
+    -moz-animation: wawes 7s infinite;
+    animation: wawes 7s infinite;
+  }
+  .register > input {
+    font-family: "Asap", sans-serif;
+    text-align: center;
+    display: block;
+    border-radius: 2px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0.5px solid #ff7a01;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+
+  .permission {
+    font-family: "Asap", sans-serif;
+    display: block;
+    border-radius: 2px;
+    font-size: 16px;
+    background: white;
+    width: 105%;
+    border: 0.5px solid #ff7a01;
+    padding: 10px 10px;
+    margin: 15px -10px;
+    appearance: none; /* Oculta el estilo nativo del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ff7a01' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+.permission option {
+  font-family: "Asap", sans-serif;
+  background-color: white;
+  color: grey;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+option:hover {
+  background-color: #ffe2cc; 
+}
+
+.register > button {
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #ff7a01;
+  font-size: 12px;
+  text-transform: uppercase;
+  width: 110px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 2px;
+  background-color: white;
+  border: 1px solid #ff7a01;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+  .register > button:hover {
+    background-color: #ff7c0196;
+    color: white;
+  }
+  
+  @-webkit-keyframes wawes {
+    from {
+      -webkit-transform: rotate(0);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes wawes {
+    from {
+      -moz-transform: rotate(0);
+    }
+    to {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @keyframes wawes {
+    from {
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      -ms-transform: rotate(0);
+      -o-transform: rotate(0);
+      transform: rotate(0);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  a:not(.flecha) {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+  }
+  
+
+  html {
+    overflow-y: scroll;
+  }
+  
+  
+  body {
+      background-color: #f5f5f5;
+      font-family: "Asap", sans-serif;
+    }
+
+    .title-empleado{
+      position: relative;
+      left: 9%;
+      bottom: 10px;
+      display: inline-block;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    
+    .title-empleado::before,
+    .title-empleado::after {
+      content: "[";
+      color: #ff7a01;
+      font-size: 1.7rem;
+      margin: 0 8px;
+      position: relative;
+      top: -1px;
+    }
+    
+    .title-empleado::after {
+      content: "]";
+    }
+
+
+    .title-producto {
+      position: relative;
+      left: 14%;
+      bottom: 10px;
+      display: inline-block;
+      font-size: 1.5rem;
+      color: #333;
+    }
+    
+    .title-producto::before,
+    .title-producto::after {
+      content: "[";
+      color: #ff7a01;
+      font-size: 1.7rem;
+      margin: 0 8px;
+      position: relative;
+      top: -1px;
+    }
+    
+    .title-producto::after {
+      content: "]";
+    }
+
+
+
+    .header {
+      position: relative;
+      top: 2.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        top: 2rem; /* más chico en pantallas pequeñas */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header {
+        top: 1.5rem;
+      }
+    }
+
+
+    .header h1 {
+      font-family: "Asap", sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      margin: 0;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      animation: fadeDown 1s ease-in-out;
+    }
+    
+    /* Parte destacada del nombre */
+    .header h1 span {
+      color: #fc902c;
+    }
+    
+    /* Slogan */
+    .header .slogan {
+      font-family: "Asap", sans-serif;
+      color: #666;
+      font-size: 1rem;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    /* Línea decorativa debajo del título */
+    .header h1::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #fc902c;
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+    
+
+    .flecha {
+      position: relative;
+      bottom: 50px;
+      left: 20px;
+      text-decoration: none;
+      font-size: 54px;
+      color: #ff7c017e; /* gris claro */
+      font-family: sans-serif;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .flecha:hover {
+      color: #ff7a01; /* naranja al pasar el mouse */
+    }
+    
+    
