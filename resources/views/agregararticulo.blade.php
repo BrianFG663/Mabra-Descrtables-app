@@ -21,6 +21,7 @@
                 <input type="number" name="precio" id="precio" placeholder="Precio unitario">    
                 <input type="number" name="stock" id="stock" placeholder="Stock disponible">    
                 <select name="categoria" id="categoria" class="permission">
+                    <option value="default" selected disabled hidden>Selecciona una categoría</option>
                     @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->id }}">{{$categoria->nombre}}</option>
                     @endforeach

@@ -42,10 +42,10 @@ class UserController extends Controller
     public function registrarEmpleado(Request $request){
         
         User::create(
-            ['name'=>$request->name,
+            ['name'=>ucfirst($request->name),
             'permission_id'=>$request->permission,
             'email'=>$request->email,
-            'lastname'=>$request->lastname,
+            'lastname'=>ucfirst($request->lastname),
             'password'=>'empleado']
         );
 

@@ -2,7 +2,7 @@ window.validarRegistroProducto = function () {
     let valorname = document.getElementById("name").value.trim();
     let precio = document.getElementById("precio").value.trim();
     let stock = document.getElementById("stock").value.trim();
-    let descripcion = document.getElementById("descripcion").value.trim();
+    let categoria = document.getElementById("categoria").value.trim();
 
     if (valorname === "") {
         Swal.fire({
@@ -40,6 +40,15 @@ window.validarRegistroProducto = function () {
             });
             return;
         }
+    }
+
+    if (categoria == "default") {
+        Swal.fire({
+            icon: "error",
+            title: "POR FAVOR SELECCIONE UNA CATEGORIA",
+            scrollbarPadding: false
+        });
+        return;
     }
 
     Swal.fire({

@@ -58,8 +58,10 @@ Route::post('/ventasregistrar', [SaleController::class, 'registrar'])->name('reg
 
 // Ruta para buscar productos
 
-Route::get('/productos', function () {
-    return view('busquedaarticulos');
-})->name('busqueda.inicio');  
 
-Route::post('/traer-producto', [ProductController::class, 'buscarProducto']);
+Route::get('/productos', [ProductController::class, 'ProductosCategoria'])->name('busqueda.inicio'); //ruta inicial
+
+Route::post('/traer-producto', [ProductController::class, 'buscarProducto']); //busqueda de producto individual
+
+Route::post('/traer-productos', [ProductController::class, 'TraerProductos']); //busqueda de productos por categoria
+
