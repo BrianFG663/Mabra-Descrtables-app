@@ -169,7 +169,7 @@ window.buscarProductos = function () {
                 popup: 'swposition',
                 confirmButton: 'swbtn'
             },
-          });
+        });
     }
 
     fetch('/traer-productos', {

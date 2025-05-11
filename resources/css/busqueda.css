@@ -376,6 +376,18 @@ background-color: #ffe2cc;
     background-color: white;
 }
 
+.contenedor-edicion{
+  z-index: 10;
+    position: relative;
+    left: 20%;
+    top: 10%;
+    width: 60%;
+    height: 60%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border: 1px solid #ff7c01;
+}
+
 .producto{
     display: flex;
     flex-direction: column;
@@ -462,6 +474,12 @@ background-color: #ffe2cc;
   top: 30%;
 }
 
+.carrito-edicion{
+  position: relative;
+  top: 36%;
+
+}
+
 .carrito-vacio{
   width: 37%;
   display: flex;
@@ -472,6 +490,17 @@ background-color: #ffe2cc;
   position: relative;
 }
 
+.carrito-vacio-edicion{
+    width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 31%;
+  position: relative;
+}
+
+
 .carrito-vacio > span{
   position: relative;
   top: 1vh;
@@ -480,10 +509,20 @@ background-color: #ffe2cc;
   opacity: 0.5;
 }
 
+.carrito-vacio-edicion > span{
+  position: relative;
+  top: 1vh;
+  font-size: 0.7vw;
+  font-weight: 200;
+  opacity: 0.7;
+}
+
+
+
 .vacio-img{
   width: 20%;
   height: 20%;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 
@@ -499,6 +538,91 @@ background-color: #ffe2cc;
   left: 40%;
   height: 70%;
   width: 20%;
+  background-color: #feb068;
+  border-radius: 1vh;
+}
+
+.contenedor-carta{
+  position: relative;
+  top: 15%;
+  left: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  height: 70%;
+  width: 45%;
+}
+
+.botones-edicion{
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+  position: relative;
+  top: 7%;
+  height: 17%;
+  width: 30%;
+}
+
+.botones-edicion > button{
+  font-weight: 600;
+  color: #4b2705;
+  outline: none;
+  border: none;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 40%;
+  width: 65%;
+  transition: 0.4s;
+}
+
+form{
+  font-weight: 600;
+  border: 1px solid black;
+  color: #4b2705;
+  outline: none;
+  border: none;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 40%;
+  width: 85%;
+
+}
+
+.btn-editar{
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 100%;
+  border: none;
+  outline: none;
+  width: 75%;
+  background-color: #eff161;
+  transition: 0.4s;
+}
+
+.btn-editar:hover{
+  width: 100%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.btn-eliminar{
+  background-color: #e74938;
+}
+
+.btn-eliminar:hover{
+  width: 85%;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.carta-edicion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 70%;
   background-color: #feb068;
   border-radius: 1vh;
 }

@@ -53,8 +53,6 @@ class ProductController extends Controller
             return  response()->json(['mensaje'=>'falso']);
         }
 
-
-        
     }
 
     public function ProductosCategoria(){
@@ -62,5 +60,13 @@ class ProductController extends Controller
         $categorias = Category::all();
 
         return view('busquedaarticulos',compact('categorias'));
+    }
+
+    public function buscarProductoEdicion(Request $request){
+
+        $id = $request->input('id');
+        $producto = Product::find($id);
+
+        return view('formularioEditarProducto', compact('producto'));
     }
 }

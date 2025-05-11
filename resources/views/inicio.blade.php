@@ -27,7 +27,7 @@
             <form action="{{route('ventas.inicio')}}" method="get">@csrf <input class="boton" type="submit" value="VENTAS"></form>
             <form action="{{route('busqueda.inicio')}}" method="get">@csrf <input class="boton" type="submit" value="BUSQUEDA DE ARTICULO"></form>
             <form action="{{route('formulario.producto')}}" method="get">@csrf <input class="boton" type="submit" value="AGREGAR ARTICULO"></form>
-            <form action="#" method="get">@csrf <input class="boton" type="submit" value="EDICION DE ARTICULOS"></form>
+            <form action="{{route('formulario.edicion')}}" method="get">@csrf <input class="boton" type="submit" value="EDICION DE ARTICULOS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="CAMBIO DE PRECIOS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="PRODUCTOS VENDIDOS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="REGISTRO DE VENTAS"></form>

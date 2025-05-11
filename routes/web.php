@@ -65,3 +65,16 @@ Route::post('/traer-producto', [ProductController::class, 'buscarProducto']); //
 
 Route::post('/traer-productos', [ProductController::class, 'TraerProductos']); //busqueda de productos por categoria
 
+//
+
+
+// rutas editar productos
+
+
+Route::get('/edicionproducto', function () {
+        return view('editarProducto');
+})->name('formulario.edicion');
+
+Route::get('/edicion/producto', [ProductController::class, 'buscarProductoEdicion']);
+
+//
