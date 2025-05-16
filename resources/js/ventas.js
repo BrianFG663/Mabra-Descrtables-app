@@ -2,6 +2,7 @@ const input = document.getElementById('buscar');
 const resultados = document.getElementById('resultados');
 const carrito = document.getElementById('carrito');
 const enviarBtn = document.getElementById('enviar-carrito');
+var contador =0
 
 let timeout = null;
 let productosCarrito = [];
@@ -123,19 +124,22 @@ function renderizarCarrito() {
         return;
     }
 
-    productosCarrito.forEach(producto => {
-        totalCalculado += producto.precio * producto.cantidad;
 
+    productosCarrito.forEach((producto,index) => {
+        totalCalculado += producto.precio * producto.cantidad;
+        contador++
         const li = document.createElement('div');
         li.innerHTML = `<div class="articulo">
+            <span class="numero-articulo">#${index + 1}</span> 
             <span class="nombre-articulo">${producto.nombre}</span> 
             <div class="botones">
                 <button class="restar-btn" data-id="${producto.id}"><i class="fa-regular fa-square-minus"></i></button>
-                <div>${producto.cantidad}</div>
+                <div class="cantidad">${producto.cantidad}</div>
                 <button class="sumar-btn" data-id="${producto.id}"><i class="fa-regular fa-square-plus"></i></button>
             </div>
             <div class="precio">
-                <span>TOTAL: $ ${(parseFloat(producto.precio) * producto.cantidad).toFixed(2)}</span>
+                <span class="pu">PRECION UNITARIO: $ ${producto.precio}</span>
+                <span class="pt">TOTAL: $ ${(parseFloat(producto.precio) * producto.cantidad).toFixed(2)}</span>
             </div>
             <button class="eliminar-btn" data-id="${producto.id}"><i class="fa-regular fa-trash-can"></i></button>
         </div>`;
@@ -167,7 +171,23 @@ function renderizarCarrito() {
     document.querySelectorAll('.eliminar-btn').forEach(button => {
         button.addEventListener('click', (e) => {
             const id = e.currentTarget.dataset.id;
-            eliminarProducto(parseInt(id));
+            Swal.fire({
+                imageWidth: 100,
+                imageHeight: 100,
+                imageUrl: "/images/advertencia.png",
+                title: "¿QUITAR ESTE PRODUCTO DE LA VENTA?",
+                showCancelButton: true,
+                cancelButtonText: "CONSERVAR",
+                confirmButtonText: "QUITAR PRODUCTO",
+                confirmButtonColor: '#e74938',
+                cancelButtonColor: '#ffd087',
+                backdrop: false, 
+            }).then((result) => {
+                if (result.isConfirmed) {
+                eliminarProducto(parseInt(id));
+            }
+            })
+            
         });
     });
     
@@ -178,35 +198,65 @@ function renderizarCarrito() {
 
 enviarBtn.addEventListener('click', function() {
     if (productosCarrito.length === 0) {
-        alert('No hay productos en el carrito.');
+        Swal.fire({
+            title: "CARRITO DE VENTA VACIO",
+            text:"Por favor agregue un producto",
+            showConfirmButton: true,
+            confirmButtonColor: '#ff7c019a',
+            backdrop: false, 
+            imageWidth: 100,
+            imageHeight: 100,
+            imageUrl: "/images/carro-vacio.png",
+        })
         return;
     }
 
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    Swal.fire({
+        imageWidth: 100,
+        imageHeight: 100,
+        imageUrl: "/images/venta.png",
+        title: "¿DESEA REGISTRAR ESTA VENTA?",
+        showCancelButton: true,
+        cancelButtonText: "CANCELAR",
+        confirmButtonText: "REGISTRAR",
+        confirmButtonColor: '#e74938',
+        cancelButtonColor: '#ffd087',
+        backdrop: false, 
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-fetch('/ventasregistrar', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': csrfToken
-    },
-    body: JSON.stringify({ 
-        total:total,
-        productos: productosCarrito })
-})
-.then(response => {
-    console.log(response); // Verifica qué devuelve el servidor
-    return response.json();
-})
-.then(data => {
-    alert('Venta registrada correctamente!');
-    productosCarrito = [];
-    renderizarCarrito();
-})
-.catch(error => {
-    console.error('Error registrando la venta:', error);
-    alert('Error al registrar la venta.');
-});
-
+            fetch('/ventasregistrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({ 
+                    total:total,
+                    productos: productosCarrito })
+            })
+            .then(response => {
+                console.log(response); 
+                return response.json();
+            })
+            .then(data => {
+                Swal.fire({
+                    title: "VENTA REAGISTRRADA",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    backdrop: false, 
+                    imageWidth: 100,
+                    imageHeight: 100,
+                    imageUrl: "/images/venta-ok.png",
+                })
+                productosCarrito = [];
+                renderizarCarrito();
+            }).catch(error => {
+                console.error('Error registrando la venta:', error);
+                alert('Error al registrar la venta.');
+            });
+        }
+    })
 });
 

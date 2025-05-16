@@ -28,15 +28,15 @@
             <form action="{{route('busqueda.inicio')}}" method="get">@csrf <input class="boton" type="submit" value="BUSQUEDA DE ARTICULO"></form>
             <form action="{{route('formulario.producto')}}" method="get">@csrf <input class="boton" type="submit" value="AGREGAR ARTICULO"></form>
             <form action="{{route('formulario.edicion')}}" method="get">@csrf <input class="boton" type="submit" value="EDICION DE ARTICULOS"></form>
-            <form action="#" method="get">@csrf <input class="boton" type="submit" value="CAMBIO DE PRECIOS"></form>
+            <form action="{{route('formulario.precio')}}" method="get">@csrf <input class="boton" type="submit" value="CAMBIO DE PRECIOS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="PRODUCTOS VENDIDOS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="REGISTRO DE VENTAS"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="CONTROL DE STOCK"></form>
             <form action="#" method="get">@csrf <input class="boton" type="submit" value="AGREGAR CATEGORIA"></form>
             <form action="{{route('route.logout')}}" method="POST">@csrf <input class="boton-sesion" type="submit" value="CERRAR SESION"></form>
         @else
-            <form action="#" method="get">@csrf <input class="boton" type="submit" value="VENTAS"></form>
-            <form action="#" method="get">@csrf <input class="boton" type="submit" value="BUSQUEDA DE ARTICULOS"></form>
+            <form action="{{route('ventas.inicio')}}" method="get">@csrf <input class="boton" type="submit" value="VENTAS"></form>
+            <form action="{{route('busqueda.inicio')}}" method="get">@csrf <input class="boton" type="submit" value="BUSQUEDA DE ARTICULOS"></form>
             <form action="{{route('route.logout')}}" method="POST">@csrf <input class="boton-sesion" type="submit" value="CERRAR SESION"></form>
         @endif
         </div>

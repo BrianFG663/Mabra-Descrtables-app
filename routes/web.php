@@ -77,4 +77,19 @@ Route::get('/edicionproducto', function () {
 
 Route::get('/edicion/producto', [ProductController::class, 'buscarProductoEdicion']);
 
+Route::patch('/edicion/productoeditado', [ProductController::class, 'edicionProducto']);
+
+Route::delete('/eliminarProducto', [ProductController::class, 'eliminarProducto'])->name('eliminar.producto');
+
+
+//
+
+
+// rutas cambio de precio
+
+
+Route::get('/cambioprecios', [ProductController::class, 'formularioCambiarPrecios'])->name('formulario.precio');
+
+Route::patch('cambioprecios/categoria', [ProductController::class, 'cambiarPrecio'])->name('editar.precio');
+
 //

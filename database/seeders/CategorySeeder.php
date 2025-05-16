@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
             ['nombre' => 'PLASTICO'],
             ['nombre' => 'ALUMINIO'],
             ['nombre' => 'COTILLON'],
-            ['nombre' => 'ENVASE'],
+            ['nombre' => 'CARTON'],
             ['nombre' => 'EXPANDIDO'],
             ['nombre' => 'LIBRERIA'],
         ]);

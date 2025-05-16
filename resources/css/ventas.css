@@ -99,7 +99,7 @@ body {
   position: relative;
   bottom: 4vh;
   background-color: transparent;
-  border: 1px solid #FF7A01;
+  border: 1px solid #ff7c019a;
   color: #ff7a01;
   font-weight: 600;
   border-radius: 3px;
@@ -119,6 +119,7 @@ body {
   top: 30%;
   left: 31%;
   position: relative;
+  opacity: 0.5;
 }
 
 .carrito-vacio > span{
@@ -137,7 +138,8 @@ body {
 .input-buscador:focus{
     border-radius: 2px;
     outline: none;
-    box-shadow: none;
+    box-shadow: 0 4px 8px #ff7c01b2;
+    transition: 0.3s;
 }
 
 
@@ -264,7 +266,7 @@ body {
 }
 
 .articulo {
-  background-color: #f5f5f5;
+  background-color: #ffe9c2;
   margin-top: 3px;
   margin-bottom: 3px;
   position: relative;
@@ -274,8 +276,9 @@ body {
   height: auto; /* Cambiado a auto para que la altura dependa del contenido */
   display: flex;
   flex-direction: row;
-  border: 1px solid #b6b6b6;
+  border: 1px solid #feb068;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -367,58 +370,69 @@ body {
   align-items: center;
   height: 70%;
   width: 90%;
-  background-color: #eeeeee;
-  border: 1px solid rgb(182, 182, 182);
+  background-color: #ffe9c2;
+  border: 1px solid #feb068;
 }
 
 
 
 
-.botones{
+.botones {
   position: relative;
   top: 10%;
-  left: 36%;
-  height: 80%;
+  left: 5%;
+  height: 80%; /* Este es el alto total del contenedor */
   width: 8%;
   display: flex;
   flex-direction: row;
+  align-items: center; /* Alinea verticalmente los hijos */
 }
 
-.botones > div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(61, 61, 61);
+.cantidad {
+  padding: 0%;
+  margin: 0%;
+  width: 50%;
+  box-sizing: border-box;
+  font-size: 2.5vh;
+  height: 100%;
+  color: black;
   text-align: center;
-  font-size: 3vh;
-  width: 40%;
-  border-top: 1px solid #ff7a01;
-  border-bottom: 1px solid #ff7a01;
+  border-top: 1px solid #fc9d45;
+  border-bottom: 1px solid #feb068;
 }
 
-.sumar-btn{
-  font-weight: 100;
-  font-size: 1vw;
+.sumar-btn,
+.restar-btn {
+  width: 25%;
+  color: rgb(61, 61, 61);
+  height: 100%; /* Nuevo: ambos botones también ocupan el 90% de la altura */
   background-color: transparent;
+  font-size: 1vw;
+  font-weight: 100;
+  padding: 0%;
+  margin: 0%;
+}
+
+.sumar-btn {
   border-left: none;
-  border-top: 1px solid #ff7a01;
-  border-bottom: 1px solid #ff7a01;
-  border-right: 1px solid #ff7a01;
+  border-top: 1px solid #fc9d45;
+  border-bottom: 1px solid #fc9d45;
+  border-right: 1px solid #fc9d45;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
+    transition: 0.2s;
 }
 
-.restar-btn{
-  font-size: 1vw;
+.restar-btn {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  background-color: transparent;
-  border-left: 1px solid #ff7a01;
-  border-top: 1px solid #ff7a01;
-  border-bottom: 1px solid #ff7a01;
+  border-left: 1px solid #fc9d45;
+  border-top: 1px solid #fc9d45;
+  border-bottom: 1px solid #fc9d45;
   border-right: none;
   transition: 0.2s;
 }
+
 
 .restar-btn:hover,.sumar-btn:hover{
   background-color: #ff7c0149;
@@ -426,7 +440,7 @@ body {
 
 .eliminar-btn{
   position: relative;
-  left: 43%;
+  left: 10%;
   font-size: 20px;
   background-color: transparent;
   border: none;
@@ -435,25 +449,46 @@ body {
 
 .eliminar-btn:hover{
   font-size: 24px;
-  border: 1px solid #ff7c01;
 }
 
 .precio{
-  font-size: 1.2vw;
+  text-align: center;
+  font-size: 1.1vw;
   position: relative;
-  left: 42%;
+  border-radius: 4px;
+  top: 9%;
+  left: 7%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
-  width: 15%;
+  height: 80%;
+  width: 40%;
+}
+
+.precio>span{
+  border: 1px solid #feb068;
+  border-radius: 4px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+
 }
 
 .nombre-articulo{
+  position: relative;
+  right: 10%;
   font-size: 1vw;
   align-items: center;
   justify-content: space-around;
   display: flex;
   width: 30%;
+}
+
+.numero-articulo{
+  font-size: 1vw;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  width: 5%;
 }
 
 

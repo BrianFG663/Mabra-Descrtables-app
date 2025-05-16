@@ -126,6 +126,56 @@ input.addEventListener('input', function() {
                             document.getElementById("btn-editar").addEventListener('click', function() {
                                 window.location.href = `/edicion/producto?id=${id}`
                             })
+
+                            document.getElementById("btn-eliminar").addEventListener('click', function() {
+                                
+
+                                Swal.fire({
+                                imageWidth: 100,
+                                imageHeight: 100,
+                                imageUrl: "/images/advertencia.png",
+                                title: "¿DESEA ELIMINAR ESTE PRODUCTO?",
+                                text: "¡ESTA ACCION NO SE PUEDE REVERTIR!",
+                                showCancelButton: true,
+                                cancelButtonText: "CANCELAR",
+                                confirmButtonText: "ELIMINAR",
+                                confirmButtonColor: '#e74938',
+                                cancelButtonColor: '#ffd087',
+                                backdrop: false, 
+                                }).then((result) => {
+                                if (result.isConfirmed) {
+                                    console.log(id)
+                                    fetch('/eliminarProducto', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                        },
+                                        body: JSON.stringify({ id:id }),
+                                    })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        if(data.mensaje == "verdadero"){
+                                            Swal.fire({
+                                                title: "ARTICULO ELIMINADO CON EXITO",
+                                                showConfirmButton: false,
+                                                timer: 1500,
+                                                backdrop: false, 
+                                                imageWidth: 100,
+                                                imageHeight: 100,
+                                                imageUrl: "/images/ok.png",
+                                            }).then(() => {
+                                                location.reload(); 
+                                            });
+                                }
+                            })
+
+                        }});
+
+
+                                
+                                        
+                            })
                             
                         })
                     );
@@ -138,3 +188,7 @@ input.addEventListener('input', function() {
         }
     }, 300);
 });
+
+
+
+
