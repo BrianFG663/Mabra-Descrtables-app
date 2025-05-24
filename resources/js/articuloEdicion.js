@@ -25,12 +25,13 @@ window.enviarDatos = function (){
                 
                 if(data.categorias[i].id == categoria_nueva){
                     Swal.fire({
-                        imageUrl: "/images/cancelar.png",
-                        imageWidth: 100,
-                        imageHeight: 100,
-                        confirmButtonText: "ENTENDIDO",
-                        confirmButtonColor: '#ff7a01',
-                        text: "ESTE PRODUCTO YA CONTIENE ESTA CATEGORIA",
+                        imageUrl: "/images/error.png",
+                            imageWidth: 100,
+                            imageHeight: 100,
+                            confirmButtonColor: '#ffd087',
+                            confirmButtonText: "ENTENDIDO",
+                            title:"¡ERROR!",
+                            text: "ESTA CATEGORIA YA SE ENCUENTRA EN EL PRODUCTO",
                         backdrop: false, 
                     })
 
@@ -52,7 +53,7 @@ window.enviarDatos = function (){
                         imageUrl: "/images/cancelar.png",
                         imageWidth: 100,
                         imageHeight: 100,
-                        confirmButtonColor: '#ff7a01',
+                        confirmButtonColor: '#ffd087',
                         confirmButtonText: "ENTENDIDO",
                         text: "DEBE INGRESAR AL MENOS UN DATO A EDITAR",
                         backdrop: false, 
@@ -63,12 +64,13 @@ window.enviarDatos = function (){
                     
                     if(categoria_eliminar != "default" && data.categorias.length == 1){
                         Swal.fire({
-                            imageUrl: "/images/cancelar.png",
+                            imageUrl: "/images/error.png",
                             imageWidth: 100,
                             imageHeight: 100,
-                            confirmButtonColor: '#ff7a01',
+                            confirmButtonColor: '#ffd087',
                             confirmButtonText: "ENTENDIDO",
-                            text: "EL PRODUCTO DEBE TENER AL MENOS UNA CATEGORIA",
+                            title:"¡ERROR!",
+                            text: "NO SE PUEDE ELIMINAR ESTA CATEGORIA POR QUE EL PRODUCTO DEBE TENER AL MENOS UNA CATEGORIA ASIGNADA.",
                             backdrop: false, 
                         })
 

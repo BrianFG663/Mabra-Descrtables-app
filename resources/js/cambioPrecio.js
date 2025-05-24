@@ -2,6 +2,7 @@ window.validarEdicionPrecio = function() {
     let [id, nombre] = document.getElementById("categoria").value.split('|');
     let porcentaje = document.getElementById("porcentaje").value
     let accion = document.getElementById("accion").value.toUpperCase();
+    console.log(accion)
 
 
     if(porcentaje == ""){
@@ -30,15 +31,16 @@ window.validarEdicionPrecio = function() {
         return;
     }
 
-    if(accion == "default"){
+    if(accion == "DEFAULT"){
         Swal.fire({
-            title: "POR FAVOR SELECCIONE UN VALOR",
-            showConfirmButton: true,
-            confirmButtonColor: '#ff7c019a',
-            backdrop: false, 
+            imageUrl: "/images/error.png",
             imageWidth: 100,
             imageHeight: 100,
-            imageUrl: "/images/cancelar.png",
+            confirmButtonColor: '#ffd087',
+            confirmButtonText: "ENTENDIDO",
+            title:"¡ERROR!",
+            text: "DEBE SELECCIONAR UNA ACCION A REALIZAR",
+            backdrop: false, 
         })
         return;
     }
@@ -46,13 +48,14 @@ window.validarEdicionPrecio = function() {
     if(nombre == undefined){
         
         Swal.fire({
-            title: "POR FAVOR SELECCIONE UNA CATEGORIA",
-            showConfirmButton: true,
-            confirmButtonColor: '#ff7c019a',
-            backdrop: false, 
+            imageUrl: "/images/error.png",
             imageWidth: 100,
             imageHeight: 100,
-            imageUrl: "/images/cancelar.png",
+            confirmButtonColor: '#ffd087',
+            confirmButtonText: "ENTENDIDO",
+            title:"¡ERROR!",
+            text: "DEBE SELECCIONAR UNA CATEGORIA",
+            backdrop: false, 
         })
         return;
     }
@@ -71,8 +74,17 @@ window.validarEdicionPrecio = function() {
         backdrop: false, 
     }).then((result) => {
         if(result.isConfirmed){
-            console.log("aaaaaaa")
-            document.getElementById("formulario-precio").submit()
+            Swal.fire({
+                title: `${accion} DE PRECIOS REALIZADA`,
+                showConfirmButton: false,
+                timer: 2000,
+                backdrop: false, 
+                imageWidth: 100,
+                imageHeight: 100,
+                imageUrl: "/images/venta-ok.png",
+            })
+            setInterval(function () {document.getElementById("formulario-precio").submit()}, 2000);
+            
         }
     })
 

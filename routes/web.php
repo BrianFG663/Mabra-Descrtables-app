@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Sale_detailController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::post('/formularioempleado', [UserController::class, 'formularioEmpleado'])->name('formulario.empleado');
 
-Route::post('/registrerController', [UserController::class, 'registrarEmpleado'])->name('registro.empleado');
+Route::post('/buscarempleado', [UserController::class, 'verificarCorreo'])->name('verificar.correo');
 
+Route::post('/registrerController', [UserController::class, 'registrarEmpleado'])->name('registro.empleado');
 //
 
 //producto
@@ -93,3 +95,35 @@ Route::get('/cambioprecios', [ProductController::class, 'formularioCambiarPrecio
 Route::patch('cambioprecios/categoria', [ProductController::class, 'cambiarPrecio'])->name('editar.precio');
 
 //
+
+// ruta productos mas vendidos
+
+Route::get('/inicioProductoVendidos', [SaleController::class, 'formularioVentas'])->name('productos.vendidos');
+
+Route::get('/productosvendidos', [SaleController::class, 'productosVendidos'])->name('todos.productos');
+
+Route::post('/categoriasvendidos', [SaleController::class, 'productosVendidosCategoria'])->name('categoria.productos');
+
+//
+
+// ruta regristro ventas 
+
+Route::get('/regristroventas', function () {
+        return view('registroVentas');
+})->name('registro.ventas');
+
+Route::post('/ventasdia', [SaleController::class, 'ventasDia'])->name('ventas.dia');
+
+Route::delete('/eliminar/venta', [SaleController::class, 'eliminarVenta'])->name('eliminar.venta');
+
+Route::get('/detalle/venta', [SaleController::class, 'detalleVenta'])->name('detalle.venta');
+
+Route::delete('/eliminar/producto/venta', [Sale_detailController::class, 'eliminarProductoVenta'])->name('eliminar.detail');
+
+//
+
+// ruta control de stock
+
+Route::get('/controlStock', [ProductController::class, 'controlStock'])->name('control.stock');
+
+

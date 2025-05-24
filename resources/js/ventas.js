@@ -200,7 +200,7 @@ enviarBtn.addEventListener('click', function() {
     if (productosCarrito.length === 0) {
         Swal.fire({
             title: "CARRITO DE VENTA VACIO",
-            text:"Por favor agregue un producto",
+            text:"¡Agregue productos para continuar!",
             showConfirmButton: true,
             confirmButtonColor: '#ff7c019a',
             backdrop: false, 

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>MABRA:EDITAR PRODUCTO</title>
+    <link rel="icon" href="{{ asset('images/iconos/letra-m.png') }}" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/formularioEdicion.css')
     @vite('resources/js/articuloEdicion')

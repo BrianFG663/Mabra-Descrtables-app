@@ -207,7 +207,7 @@ option:hover {
 
     .header {
       position: relative;
-      top: 2.5rem;
+      top: 4.5rem;
     }
     
     @media (max-width: 768px) {
@@ -281,3 +281,18 @@ option:hover {
       color: #ff7a01; /* naranja al pasar el mouse */
     }
     
+
+.imagenes{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  left: 3%;
+  height: 50%;
+  width: 94%;
+  margin: 0;
+}
+
+.imagenes > img{
+  opacity: 0.03;
+}

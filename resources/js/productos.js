@@ -6,8 +6,12 @@ window.validarRegistroProducto = function () {
 
     if (valorname === "") {
         Swal.fire({
-            icon: "error",
-            title: "EL NOMBRE DEL PRODUCTO ES OBLIGATORIO",
+            imageUrl: "/images/error.png",
+            imageWidth: 100,
+            imageHeight: 100,
+            backdrop: false, 
+            title: "¡ERROR!",
+            text: "El nombre del producto es obligatorio.",
             scrollbarPadding: false
         });
         return;
@@ -15,8 +19,12 @@ window.validarRegistroProducto = function () {
 
     if (precio === "") {
         Swal.fire({
-            icon: "error",
-            title: "EL PRECIO DEL PRODUCTO ES OBLIGATORIO",
+            imageUrl: "/images/error.png",
+            imageWidth: 100,
+            backdrop: false, 
+            imageHeight: 100,
+            title: "¡ERROR!",
+            text: "El precio del producto es obligatorio.",
             scrollbarPadding: false
         });
         return;
@@ -24,28 +32,40 @@ window.validarRegistroProducto = function () {
 
     if (isNaN(precio) || precio.trim() === "") {
         Swal.fire({
-            icon: "error",
-            title: "SOLO SE PERMITEN NÚMEROS EN EL PRECIO",
+            imageUrl: "/images/error.png",
+            imageWidth: 100,
+            imageHeight: 100,
+            title: "¡ERROR!",
+            backdrop: false, 
+            text: "El precio solo permite numeros.",
             scrollbarPadding: false
         });
         return;
     }
 
-    if (stock.trim() !== "") { // si escribió algo
+    if (stock.trim() !== "") { 
         if (isNaN(stock)) {
             Swal.fire({
-                icon: "error",
-                title: "SOLO SE PERMITEN NÚMEROS EN EL STOCK",
-                scrollbarPadding: false
-            });
+            imageUrl: "/images/error.png",
+            imageWidth: 100,
+            imageHeight: 100,
+            title: "¡ERROR!",
+            backdrop: false, 
+            text: "El stock solo permite numeros.",
+            scrollbarPadding: false
+        });
             return;
         }
     }
 
     if (categoria == "default") {
         Swal.fire({
-            icon: "error",
-            title: "POR FAVOR SELECCIONE UNA CATEGORIA",
+            imageUrl: "/images/error.png",
+            imageWidth: 100,
+            imageHeight: 100,
+            backdrop: false, 
+            title: "¡ERROR!",
+            text: "Debe seleccionar una categoria para el producto.",
             scrollbarPadding: false
         });
         return;
@@ -53,9 +73,12 @@ window.validarRegistroProducto = function () {
 
     Swal.fire({
         title: "¿DESEA AGREGAR EL PRODUCTO?",
-        icon: "warning",
+        imageUrl: "/images/advertencia.png",
+        imageWidth: 100,
+        imageHeight: 100,
+        backdrop: false, 
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#ffd087",
         cancelButtonColor: "#d33",
         confirmButtonText: "AGREGAR",
         cancelButtonText: "CANCELAR"
@@ -63,8 +86,11 @@ window.validarRegistroProducto = function () {
         if (result.isConfirmed) {
             Swal.fire({
                 title: "PRODUCTO REGISTRADO",
-                icon: "success",
+                imageUrl: "/images/ok.png",
+                imageWidth: 100,
+                imageHeight: 100,
                 showConfirmButton: false,
+                backdrop: false, 
                 timer: 1000
             });
             setTimeout(() => {

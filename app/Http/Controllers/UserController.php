@@ -39,8 +39,20 @@ class UserController extends Controller
         
     }
 
+    public function verificarCorreo(Request $request){
+
+        $correo = $request->correo;
+        $user = User::where('email', $correo)->first();
+        if(!empty($user)){
+            return response()->json(['mensaje' => 'false']);
+        }else{
+           
+            return response()->json(['mensaje' => 'true']);
+        }
+    }
+
     public function registrarEmpleado(Request $request){
-        
+
         User::create(
             ['name'=>ucfirst($request->name),
             'permission_id'=>$request->permission,
@@ -48,6 +60,7 @@ class UserController extends Controller
             'lastname'=>ucfirst($request->lastname),
             'password'=>'empleado']
         );
+
 
         return view('inicio');
     }

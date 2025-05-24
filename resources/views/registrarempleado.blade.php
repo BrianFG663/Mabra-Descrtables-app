@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>MABRA:REGISTRAR EMPLEADO</title>
+    <link rel="icon" href="{{ asset('images/iconos/letra-m.png') }}" type="image/png">
     @vite('resources/css/registroempleado.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @vite('resources/css/registroempleado.css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     <div class="container">
@@ -17,8 +19,9 @@
             <form class="register" id="formulario-register" action="{{ route('registro.empleado') }}" method="POST">
                 @csrf
 
-                <p class="title-empleado">REGISTRAR EMPLEADO</p>
-                <input type="text" name="name" id="name" placeholder="Nombre">
+                <p class="title-producto">REGISTRAR EMPLEADO</p>
+                <div class="contenedor-botones">
+                    <input type="text" name="name" id="name" placeholder="Nombre">
                 <input type="lastname" name="lastname" id="lastname" placeholder="Apellido">
                 <input type="text" name="email" id="email" placeholder="Correo electronico">    
 
@@ -27,6 +30,8 @@
                         <option value="{{ $permiso->id }}">{{$permiso->permission}}</option>
                     @endforeach
                 </select>
+                </div>
+                
                 
                 <button type="button" onclick="validarRegistroEmpleado()">Registrar</button>
             </form>

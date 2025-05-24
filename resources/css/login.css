@@ -1,12 +1,13 @@
-html {
-  overflow-y: scroll;
-}
-
-
-body {
+   html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #f5f5f5;
     font-family: "Asap", sans-serif;
-  }
+    overflow: hidden;
+    position: relative;
+}
+
   
   .login {
     overflow: hidden;
@@ -132,7 +133,6 @@ body {
 
 
 
-
 /* Contenedor general */
 .wrapper {
   display: flex;
@@ -143,45 +143,56 @@ body {
   padding-top: 40px;
 }
 
-/* Título principal */
-.header h1 {
-  font-family: "Asap", sans-serif;
-  font-size: 3rem;
-  text-align: center;
-  margin: 0;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+
+.header {
+  font-size: 2vh;
   position: relative;
-  animation: fadeDown 1s ease-in-out;
-}
+    top: 10%;
+    width: 60%;
+    height: 8%;
+    left: 20%;
+  }
 
-/* Parte destacada del nombre */
-.header h1 span {
-  color: #fc902c;
-}
 
-/* Slogan */
-.header .slogan {
-  font-family: "Asap", sans-serif;
-  color: #666;
-  font-size: 1rem;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  text-align: center;
-  font-style: italic;
-}
 
-/* Línea decorativa debajo del título */
-.header h1::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #fc902c;
-  margin: 12px auto 0;
-  border-radius: 2px;
-}
+  .header h1 {
+    font-family: "Asap", sans-serif;
+    text-align: center;
+    margin: 0;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    animation: fadeDown 1s ease-in-out;
+  }
+  
+  /* Parte destacada del nombre */
+  .header h1 span {
+    color: #fc902c;
+  }
+  
+  /* Slogan */
+  .header .slogan {
+    font-family: "Asap", sans-serif;
+    color: #666;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  /* Línea decorativa debajo del título */
+  .header h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #fc902c;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
 
 /* Animación de entrada */
 @keyframes fadeDown {

@@ -1,6 +1,5 @@
 const input = document.getElementById('buscar');
 let timeout = null;
-
 input.addEventListener('input', function() {
     clearTimeout(timeout);
 
@@ -97,30 +96,17 @@ input.addEventListener('input', function() {
                             }
 
                             categoriasTexto = categoriasTexto.replace(/,\s*$/, "");
-                            document.getElementById('contenedor').innerHTML = 
-                            `<div class="contenedor-carta">
-                                <div class="carta-edicion">
-                                    <div class="imagen-container">
-                                        <button class="eliminar-btn" onclick="botonEliminar()"><i class="fa-solid fa-xmark"></i></i></button>
-                                        <div id="imagen-producto"></div>
-                                        <strong class="precio">$${data.producto.precio}</strong>
-                                    </div>
-                                    <div class="info-container">
-                                        <div class="nombre"><strong >${data.producto.nombre}</strong></div>
-                                        <div class="stock"><strong>STOCK DISPONIBLE:</strong><span>${data.producto.stock} UNIDADES</span></div>
-                                        <div class="categoria"><strong>CATEGORIA:</strong><span>${categoriasTexto}</span></div>
-                                        <div class="descripcion"><strong>DESCRIPCION:</strong><span>${data.producto.descripcion}</span></div>
-                                    </div>
-                                </div>
-                                <div class="botones-edicion">
-                                    <button id="btn-editar" onclick="" class="btn-editar">EDITAR</button>
-                                    <button id="btn-eliminar" onclick="" class="btn-eliminar">ELIMINAR</button>
-                                </div>
-                            </div>`;
+                            document.getElementById('imagen-container').innerHTML = '';
+                            document.getElementById('imagen-container').innerHTML += 
+                            `<button class="eliminar-btn" onclick="botonEliminar()"><i class="fa-solid fa-xmark"></i></i></button>
+                            <div id="imagen-producto"></div>
+                            <strong class="precio">$ ${data.producto.precio}</strong>`;
 
+                            document.getElementById('nombre').innerHTML = `<strong >${data.producto.nombre}</strong>`;
+                            document.getElementById('strong-stock').innerHTML = `STOCK DISPONIBLE: ${data.producto.stock}`;
+                            document.getElementById('strong-categoria').innerHTML = `CATEGORIA: ${categoriasTexto}`;
+                            document.getElementById('strong-descripcion').innerHTML = `DESCRIPCION: ${data.producto.descripcion}`;;
                             document.getElementById("imagen-producto").appendChild(imagen);
-
-
 
 
                             document.getElementById("btn-editar").addEventListener('click', function() {
@@ -146,7 +132,7 @@ input.addEventListener('input', function() {
                                 if (result.isConfirmed) {
                                     console.log(id)
                                     fetch('/eliminarProducto', {
-                                        method: 'POST',
+                                        method: 'DELETE',
                                         headers: {
                                             'Content-Type': 'application/json',
                                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -167,17 +153,23 @@ input.addEventListener('input', function() {
                                             }).then(() => {
                                                 location.reload(); 
                                             });
-                                }
-                            })
+                                        }
+                                    }) //
 
-                        }});
+                                }});
 
 
-                                
                                         
-                            })
+                                                
+                                    })
                             
-                        })
+
+                        })//
+                        
+                        
+
+                        //
+
                     );
                     resultados.appendChild(contenedor);
                 });
@@ -189,6 +181,25 @@ input.addEventListener('input', function() {
     }, 300);
 });
 
+window.botonEliminar = function() {
+    document.getElementById("contenedor-carta").innerHTML = 
+    `<div class="carta-edicion">
+        <div class="imagen-container" id="imagen-container"></div>
+            <div class="info-container">
+                <div class="nombre" id="nombre">*NOMBRE*</div>
+                <div class="stock"><strong id="strong-stock">*STOCK DISPONIBLE*</strong><span></span></div>
+                <div class="categoria"><strong id="strong-categoria">*CATEGORIA*</strong><span></span></div>
+                <div class="descripcion"><strong id="strong-descripcion">*DESCRIPCION*</strong><span></span></div>
+            </div>
+        </div>
+        <div class="botones-edicion">
+            <button id="btn-editar" onclick="" class="btn-editar">EDITAR</button>
+            <button id="btn-eliminar" onclick="" class="btn-eliminar">ELIMINAR</button>
+        </div>
+    </div>`;
 
-
-
+    const imagen = document.createElement('img');
+    imagen.classList.add('img-vacio-prueba');
+    imagen.src = '/images/mosca.png';
+    document.getElementById("imagen-container").appendChild(imagen)
+}

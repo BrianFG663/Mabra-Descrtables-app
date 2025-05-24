@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>MABRA:CAMBIO  DE PRECIOS</title>
+    <link rel="icon" href="{{ asset('images/iconos/letra-m.png') }}" type="image/png">
     @vite('resources/css/cambioPrecios.css')
     @vite('resources/js/cambioPrecio.js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -36,6 +37,11 @@
                 <button type="button" onclick="validarEdicionPrecio()">ACTUALIZAR</button>
             </form>
         </div>
+    </div>
+
+    <div class="imagenes">        
+        <img class="img-izquierda" src="{{asset('images/tienda.png')}}">
+        <img class="img-derecha" src="{{asset('images/papeleria.png')}}">
     </div>
 </body>
 </html>

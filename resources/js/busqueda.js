@@ -158,16 +158,18 @@ window.buscarProductos = function () {
 
     if(id == "default"){
         Swal.fire({
-            icon: "error",
+            imageUrl: "/images/cancelar.png",
+            imageWidth: 100,
+            imageHeight: 100,
             title: "SELECCIONE UNA CATEGORÍA",
             showConfirmButton: true,
             confirmButtonText: 'ACEPTAR',
             allowOutsideClick: false, 
             backdrop: false, 
+            confirmButtonColor: "#ffd087",
             width: 'auto',
             customClass: {
                 popup: 'swposition',
-                confirmButton: 'swbtn'
             },
         });
     }

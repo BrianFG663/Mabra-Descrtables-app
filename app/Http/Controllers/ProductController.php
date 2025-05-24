@@ -150,4 +150,15 @@ class ProductController extends Controller
         return redirect()->route('formulario.precio');
 
     }
+
+    public function controlStock(){
+        $productos = Product::with('categorias')
+        ->where('stock', '<=', 5)
+        ->orderBy('stock','asc')
+        ->get();
+
+        return view("controlStock",compact('productos'));
+    }
+
+ 
 }

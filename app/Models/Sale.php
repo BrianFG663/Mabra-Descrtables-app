@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Sale extends Model
 {
+    use HasFactory;
     public $timestamps = false;
     
     protected $fillable = [
@@ -22,7 +24,7 @@ class Sale extends Model
 
     public function sales_details(){
 
-        return $this->hasMany(Sale_detail::class);
+        return $this->hasMany(Sale_detail::class,'sales_id');
 
     }
 }
